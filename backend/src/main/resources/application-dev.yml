@@ -1,0 +1,41 @@
+server:
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:ssl_keys.p12
+    key-store-password: Start123
+    key-alias: ssl_keys
+    enabled: true
+  port: 9000
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://db:5432/restaurant}
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:admin123}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    #      default_schema: src/main/resources/create_table.sql
+    #      format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+keystore:
+  path: classpath:ssl_keys.p12
+  alias: ssl_keys
+  storePassword: Start123
+  keyPassword: Start123
+
+trust:
+  store: classpath:ssl_keys.p12
+  password: Start123
+
+logging:
+  level:
+    root: info
+    com.administrator: debug
+
+application:
+  jwt-secret: ${JWT_SERCRET:secret123}
+  token-expiration: "36000000"

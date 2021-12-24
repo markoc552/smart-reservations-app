@@ -1,0 +1,12 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <weaver>
+        <include within="com.administrator..*" />
+        <include within="org.springframework.boot..*" />
+    </weaver>
+
+    <aspects>
+        <aspect name="restaurant.administrator.aspects.LoggingAspect" />
+    </aspects>
+
+</aspectj>

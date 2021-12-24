@@ -1,0 +1,71 @@
+version: "3.5"
+
+x-logging:
+ &logging-config
+  driver: json-file
+  options:
+   max-size: "200k"
+   max-file: "10"
+x-healthcheck:
+ &healthcheck-config
+  test: ["CMD", "curl", "-f", "http://localhost"]
+  interval: 1m30s
+  timeout: 10s
+  retries: 3
+
+services:
+  gui:
+   image: sra_gui:latest
+   restart: on-failure
+   ports:
+    - 3000:3000
+   networks:
+    - restaurant-network
+
+  administrator:
+    image: sra/backend-service:latest
+    restart: on-failure
+    ports:
+      - 9000:9000
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - restaurant-network
+  db:
+   image: postgres:12
+   ports:
+    - 5432:5432
+   restart: on-failure
+   logging: *logging-config
+   environment:
+    - POSTGRES_USER=admin
+    - POSTGRES_PASSWORD=admin123
+    - POSTGRES_DB=restaurant
+   volumes:
+    - postgres_data:/var/lib/postgresql/data
+   networks:
+    - restaurant-network
+
+  pg-admin:
+   image: dpage/pgadmin4:latest
+   logging: *logging-config
+   restart: on-failure
+   ports:
+    - 5050:80
+   links:
+    - db
+   environment:
+    - PGADMIN_DEFAULT_EMAIL=markoperajicca@gmail.com
+    - PGADMIN_DEFAULT_PASSWORD=admin123
+    - PGADMIN_LISTEN_PORT=80
+   volumes:
+    - pgadmin_data:/var/lib/pgadmin
+
+
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+
+networks:
+  restaurant-network:
