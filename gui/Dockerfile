@@ -9,8 +9,11 @@ RUN mkdir /opt/sra
 WORKDIR "/opt/sra"
 
 COPY ./package.json ./
+COPY ./yarn.lock ./
 
+RUN yarn upgrade
 RUN yarn install
+
 
 COPY ./ ./
 
