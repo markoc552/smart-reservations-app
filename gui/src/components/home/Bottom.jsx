@@ -1,5 +1,5 @@
 import React from "react";
-import { DetailsWrapper } from "./RestaurantStyledComponents";
+import { DetailsWrapper } from "../util/RestaurantStyledComponents";
 import Logo from "../../assets/images/logo.png";
 import { Icon, Image } from "semantic-ui-react";
 

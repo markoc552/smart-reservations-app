@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navigation from "../components/util/Navigation";
+import Navigation from "../components/home/Navigation";
 import {
   HomeWrapper,
   ComponentWidget,

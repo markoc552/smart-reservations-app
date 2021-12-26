@@ -9,10 +9,10 @@
 		<version>2.4.2</version>
 	</parent>
 
-	<artifactId>administrator</artifactId>
-	<name>administrator</name>
+	<artifactId>backend-service</artifactId>
+	<name>backend-service</name>
 	<version>1.0.0-SNAPSHOT</version>
-	<description>Backend services for agile board app</description>
+	<description>Backend services for smart reservations app</description>
 
 	<properties>
 		<java.version>11</java.version>

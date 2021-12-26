@@ -3,11 +3,11 @@ import {
   Navigation as Nav,
   NavigationItemWrapper,
   NavAccountsItem,
-} from "./RestaurantStyledComponents";
+} from "../util/RestaurantStyledComponents";
 import { Icon, Image, Dropdown } from "semantic-ui-react";
 import history from "../../history";
 import Logo from "../../assets/images/logo.png";
-import AccountModal from "./AccountModal";
+import AccountModal from "../util/AccountModal";
 import { useSelector, connect } from "react-redux";
 import { login } from "../../redux/actions";
 

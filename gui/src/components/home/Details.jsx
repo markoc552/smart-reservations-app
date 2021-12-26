@@ -5,7 +5,7 @@ import {
   DetailsItemWrapper,
   DetailsTextWrapper,
   DetailsImageWrapper,
-} from "./RestaurantStyledComponents";
+} from "../util/RestaurantStyledComponents";
 import { Icon, Image } from "semantic-ui-react";
 
 const details = [

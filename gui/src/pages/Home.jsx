@@ -1,10 +1,10 @@
 import React from "react";
 import { Icon, Divider, Header } from "semantic-ui-react";
-import Navigation from "../components/util/Navigation";
-import WelcomeImage from "../components/util/WelcomeImage";
-import Details from "../components/util/Details";
-import Reviews from "../components/util/Reviews";
-import Bottom from "../components/util/Bottom";
+import Navigation from "../components/home/Navigation";
+import WelcomeImage from "../components/home/WelcomeImage";
+import Details from "../components/home/Details";
+import Reviews from "../components/home/Reviews";
+import Bottom from "../components/home/Bottom";
 import {
   HomeWrapper,
   AppImage,

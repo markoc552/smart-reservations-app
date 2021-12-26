@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "../components/util/Navigation";
+import Navigation from "../components/home/Navigation";
 import {
   HomeWrapper,
   AppImage,
@@ -60,7 +60,7 @@ const MainMenu = (props) => {
   }, []);
 
   const getDataToRender = (path, setStateCallback) => {
-    Axios.get(`${window.ENVIRONMENT.AGILE_ADMINISTRATOR}${path}`, {
+    Axios.get(`${window.ENVIRONMENT.BACKEND_SERVICE}${path}`, {
       params: {
         restaurantName: `${props.match.params.restaurant}`,
       },

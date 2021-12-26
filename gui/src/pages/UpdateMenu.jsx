@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "../components/util/Navigation";
+import Navigation from "../components/home/Navigation";
 import {
   HomeWrapper,
   AppImage,
@@ -10,7 +10,7 @@ import Axios from "axios";
 import { useSelector } from "react-redux";
 import { useToasts } from "react-toast-notifications";
 import MenuTemplate from "../components/restaurants/MenuTemplate";
-import Bottom from "../components/util/Bottom";
+import Bottom from "../components/home/Bottom";
 
 const UpdateMenu = (props) => {
   const [restaurant, setRestaurant] = useState({});

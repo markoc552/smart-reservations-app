@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "../components/util/Navigation";
+import Navigation from "../components/home/Navigation";
 import {
   HomeWrapper,
   RestaurantWrapper,
@@ -14,7 +14,7 @@ import history from "../history";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import { useToasts } from "react-toast-notifications";
-import Bottom from "../components/util/Bottom";
+import Bottom from "../components/home/Bottom";
 import { secondVariants } from "../util/animations";
 import Spinner from "react-bootstrap/Spinner";
 

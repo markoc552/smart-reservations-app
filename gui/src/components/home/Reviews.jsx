@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   DetailsWrapper,
   ReviewNameWrapper,
-} from "./RestaurantStyledComponents";
+} from "../util/RestaurantStyledComponents";
 import { motion } from "framer-motion";
 import useMediaQuery from "use-mediaquery";
 import { Segment, Image, Icon } from "semantic-ui-react";

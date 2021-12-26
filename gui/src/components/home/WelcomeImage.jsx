@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Button } from "semantic-ui-react";
-import { ImageWrapper, HeadlineWrapper } from "./RestaurantStyledComponents";
+import { ImageWrapper, HeadlineWrapper } from "../util/RestaurantStyledComponents";
 import history from "../../history";
 import { Wave } from 'react-animated-text';
 

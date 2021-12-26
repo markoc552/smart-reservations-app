@@ -1,5 +1,5 @@
 
-FROM node:12.13 as builder
+FROM node:14.15 as builder
 
 LABEL maintainer="Marko Perajica"
 LABEL version="1.0"

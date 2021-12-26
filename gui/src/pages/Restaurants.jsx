@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Navigation from "../components/util/Navigation";
+import Navigation from "../components/home/Navigation";
 import {
   HomeWrapper,
   RestaurantWrapper,
@@ -26,7 +26,7 @@ import { Slide } from "react-slideshow-image";
 import { useSelector } from "react-redux";
 import Spinner from "react-bootstrap/Spinner";
 import { secondVariants } from "../util/animations";
-import Bottom from "../components/util/Bottom";
+import Bottom from "../components/home/Bottom";
 import useMediaQuery from "use-mediaquery";
 
 const properties = {

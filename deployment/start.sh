@@ -56,7 +56,7 @@ do
  
  function buildBackend() {
  
-    cd ../backend/administrator
+    cd ../backend
     
     ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=sra/backend-service:latest
  }
@@ -68,7 +68,7 @@ do
 
  function stopContainers() {
  
-   cd ../../deployment
+   cd ../deployment
 
    docker-compose down #stop db,gui and nginx
  }
