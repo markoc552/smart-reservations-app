@@ -57,6 +57,7 @@ public class RestaurantService {
         }
     }
 
+    @Log
     public void deleteRestaurant(RestaurantDto restaurantDto) throws RestaurantNotFoundException {
         Optional<RestaurantDao> byName = restaurantRepository.findByName(restaurantDto.getName());
 

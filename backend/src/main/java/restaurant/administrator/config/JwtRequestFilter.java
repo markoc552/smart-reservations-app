@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.*;
 import org.springframework.security.web.authentication.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.filter.*;
+import restaurant.administrator.aspects.Log;
 import restaurant.administrator.exceptions.*;
 import restaurant.administrator.services.*;
 
@@ -29,6 +30,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     public static final Logger LOG = LoggerFactory.getLogger(JwtRequestFilter.class);
 
+    @Log
     @SneakyThrows
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) {
         String requestToken = httpServletRequest.getHeader("Authorization");

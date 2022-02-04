@@ -7,6 +7,7 @@ import org.springframework.http.*;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.web.bind.annotation.*;
+import restaurant.administrator.aspects.Log;
 import restaurant.administrator.config.*;
 import restaurant.administrator.model.dto.*;
 import restaurant.administrator.services.*;
@@ -28,6 +29,7 @@ public class JwtAuthenticationController {
     @Autowired
     private JwtToken jwtToken;
 
+    @Log
     @PostMapping("/authenticate")
     public ResponseEntity<Object> generateJwtToken(@Valid @NotNull(message = "Jwt request can't be null!") @RequestBody JwtRequest jwtRequest) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUsername(), jwtRequest.getPassword()));

@@ -11,7 +11,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = KeywordValidator.class)
 @Documented
 public @interface Keyword {
-
     String message() default "Keyword must have only uppercase characters!";
 
     Class<?>[] groups() default { };

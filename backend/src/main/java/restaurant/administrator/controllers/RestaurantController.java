@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
 import org.springframework.validation.annotation.*;
 import org.springframework.web.bind.annotation.*;
+import restaurant.administrator.aspects.Log;
 import restaurant.administrator.exceptions.*;
 import restaurant.administrator.model.dao.*;
 import restaurant.administrator.model.dto.*;
@@ -26,6 +27,7 @@ public class RestaurantController {
     @Autowired
     private RestaurantService restaurantService;
 
+    @Log
     @PostMapping("/createRestaurant")
     public ResponseEntity<Object> createRestaurant(@Valid @NotNull(message = RESTAURANT_CAN_T_BE_NULL) @RequestBody RestaurantDto restaurant) throws RestaurantAlreadyExistsException {
         RestaurantDao result = restaurantService.createRestaurant(restaurant);
@@ -33,6 +35,7 @@ public class RestaurantController {
         return ResponseEntity.ok(result);
     }
 
+    @Log
     @PostMapping("/updateRestaurant")
     public ResponseEntity<Object> updateRestaurant(@Valid @NotNull(message = RESTAURANT_CAN_T_BE_NULL) @RequestBody RestaurantDto restaurant) throws RestaurantNotFoundException {
         RestaurantDao result = restaurantService.updateRestaurant(restaurant);
@@ -40,6 +43,7 @@ public class RestaurantController {
         return ResponseEntity.ok(result);
     }
 
+    @Log
     @DeleteMapping("/deleteRestaurant")
     public ResponseEntity<Object> deleteRestaurant(@Valid @NotNull(message = RESTAURANT_CAN_T_BE_NULL) @RequestBody RestaurantDto restaurant) throws RestaurantNotFoundException {
         restaurantService.deleteRestaurant(restaurant);
@@ -47,6 +51,7 @@ public class RestaurantController {
         return ResponseEntity.ok("Restaurant successfully deleted");
     }
 
+    @Log
     @GetMapping("/getAllRestaurants")
     public ResponseEntity<Object> getRestaurants() {
         List<RestaurantDto> allRestaurants = restaurantService.getAllRestaurants();
@@ -55,6 +60,7 @@ public class RestaurantController {
     }
 
 
+    @Log
     @GetMapping("/getRestaurant")
     public ResponseEntity<Object> getRestaurant(@NotNull(message = RESTAURANT_NAME_CAN_T_BE_NULL) @RequestParam(name = "restaurantName") String restaurantName) throws RestaurantNotFoundException {
         RestaurantDto restaurant = restaurantService.getRestaurantByName(restaurantName);
@@ -62,6 +68,7 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurant);
     }
 
+    @Log
     @GetMapping("/getRestaurants")
     public ResponseEntity<Object> getRestaurantsByManager(@NotNull(message = RESTAURANT_NAME_CAN_T_BE_NULL) @RequestParam(name = "manager") String manager) throws RestaurantNotFoundException {
         List<RestaurantDto> restaurants = restaurantService.getRestaurantsByManager(manager);
@@ -69,6 +76,7 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurants);
     }
 
+    @Log
     @PostMapping("/addBooking")
     public ResponseEntity<Object> addBooking(@Valid @RequestBody BookingDto bookingDto) {
         BookingDto result = restaurantService.persistBooking(bookingDto);
@@ -76,6 +84,7 @@ public class RestaurantController {
         return ResponseEntity.ok(result);
     }
 
+    @Log
     @GetMapping("/getBookings")
     public ResponseEntity<Object> getBookings(@RequestParam("restaurantName") String restaurantName) throws RequestException {
         List<BookingDto> bookingsByRestaurant = restaurantService.getBookingsByRestaurant(restaurantName);

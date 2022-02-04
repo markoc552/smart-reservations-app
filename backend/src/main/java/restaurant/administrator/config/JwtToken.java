@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.*;
+import restaurant.administrator.aspects.Log;
 import restaurant.administrator.exceptions.*;
 
 import java.io.*;
@@ -17,6 +18,7 @@ public class JwtToken implements Serializable {
     @Autowired
     private ApplicationProperties applicationProperties;
 
+    @Log
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
 
@@ -28,6 +30,7 @@ public class JwtToken implements Serializable {
                              .compact();
     }
 
+    @Log
     public boolean validateToken(String token, UserDetails userDetails) {
         String secret = applicationProperties.getJwtSecret();
 
@@ -43,6 +46,7 @@ public class JwtToken implements Serializable {
         return userDetails.getUsername().equals(username);
     }
 
+    @Log
     public String getUsernameFromToken(String token) throws JwtAuthenticationException {
         String secret = applicationProperties.getJwtSecret();
 
@@ -56,6 +60,7 @@ public class JwtToken implements Serializable {
         return username;
     }
 
+    @Log
     public UsernamePasswordAuthenticationToken getUserPasswordAuthToken(UserDetails userDetails) {
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
